@@ -24,7 +24,7 @@ class MainAlarmViewController: UITableViewController{
         super.viewWillAppear(animated)
         alarmModel = Alarms()
         tableView.reloadData()
-        //dynamically append the edit button
+
         if alarmModel.count != 0 {
             self.navigationItem.leftBarButtonItem = editButtonItem
         }
