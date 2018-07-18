@@ -2,13 +2,14 @@
 //  UIWindow+Extension.swift
 //  Alarm-ios-swift
 //
-//  Created by natsu1211 on 2017/04/09.
-//  Copyright © 2017年 LongGames. All rights reserved.
+//  Created by mmizogaki on 2017/04/09.
+//  Copyright © 2017年 viviane. All rights reserved.
 //
 
 import Foundation
 import UIKit
 public extension UIWindow {
+    
     public var visibleViewController: UIViewController? {
         return UIWindow.getVisibleViewControllerFrom(vc: self.rootViewController)
     }

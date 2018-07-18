@@ -2,8 +2,8 @@
 //  Persistable.swift
 //  Alarm-ios-swift
 //
-//  Created by natsu1211 on 2017/01/25.
-//  Copyright © 2017年 LongGames. All rights reserved.
+//  Created by mmizogaki on 2017/01/25.
+//  Copyright © 2017年 viviane. All rights reserved.
 //
 
 import Foundation

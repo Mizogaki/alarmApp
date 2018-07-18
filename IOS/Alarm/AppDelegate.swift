@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  WeatherAlarm
 //
-//  Created by longyutao on 15-2-28.
-//  Copyright (c) 2015年 LongGames. All rights reserved.
+//  Created by mmizogaki on 15-2-28.
+//  Copyright (c) 2017年 viviane. All rights reserved.
 //
 
 import UIKit

@@ -2,16 +2,16 @@
 //  Scheduler.swift
 //  Alarm-ios-swift
 //
-//  Created by longyutao on 16/1/15.
-//  Copyright (c) 2016年 LongGames. All rights reserved.
+//  Created by mmizogaki on 16/1/15.
+//  Copyright (c) 2017年 viviane. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
 
-class Scheduler : AlarmSchedulerDelegate
-{
+class Scheduler : AlarmSchedulerDelegate {
+    
     var alarmModel: Alarms = Alarms()
     func setupNotificationSettings() -> UIUserNotificationSettings {
         var snoozeEnabled: Bool = false
@@ -21,10 +21,8 @@ class Scheduler : AlarmSchedulerDelegate
                 snoozeEnabled = alarmModel.alarms[i].snoozeEnabled
             }
         }
-        // Specify the notification types.
         let notificationTypes: UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.sound]
         
-        // Specify the notification actions.
         let stopAction = UIMutableUserNotificationAction()
         stopAction.identifier = Id.stopIdentifier
         stopAction.title = "OK"
@@ -41,7 +39,7 @@ class Scheduler : AlarmSchedulerDelegate
         
         let actionsArray = snoozeEnabled ? [UIUserNotificationAction](arrayLiteral: snoozeAction, stopAction) : [UIUserNotificationAction](arrayLiteral: stopAction)
         let actionsArrayMinimal = snoozeEnabled ? [UIUserNotificationAction](arrayLiteral: snoozeAction, stopAction) : [UIUserNotificationAction](arrayLiteral: stopAction)
-        // Specify the category related to the above actions.
+
         let alarmCategory = UIMutableUserNotificationCategory()
         alarmCategory.identifier = "myAlarmCategory"
         alarmCategory.setActions(actionsArray, for: .default)
@@ -49,14 +47,12 @@ class Scheduler : AlarmSchedulerDelegate
         
         
         let categoriesForSettings = Set(arrayLiteral: alarmCategory)
-        // Register the notification settings.
         let newNotificationSettings = UIUserNotificationSettings(types: notificationTypes, categories: categoriesForSettings)
         UIApplication.shared.registerUserNotificationSettings(newNotificationSettings)
         return newNotificationSettings
     }
     
-    private func correctDate(_ date: Date, onWeekdaysForNotify weekdays:[Int]) -> [Date]
-    {
+    private func correctDate(_ date: Date, onWeekdaysForNotify weekdays:[Int]) -> [Date] {
         var correctedDate: [Date] = [Date]()
         let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
         let now = Date()
@@ -125,8 +121,7 @@ class Scheduler : AlarmSchedulerDelegate
         AlarmNotification.timeZone = TimeZone.current
         let repeating: Bool = !weekdays.isEmpty
         AlarmNotification.userInfo = ["snooze" : snoozeEnabled, "index": index, "soundName": soundName, "repeating" : repeating]
-        //repeat weekly if repeat weekdays are selected
-        //no repeat with snooze notification
+
         if !weekdays.isEmpty && !onSnooze{
             AlarmNotification.repeatInterval = NSCalendar.Unit.weekOfYear
         }
@@ -167,7 +162,6 @@ class Scheduler : AlarmSchedulerDelegate
         }
     }
     
-    // workaround for some situation that alarm model is not setting properly (when app on background or not launched)
     func checkNotification() {
         alarmModel = Alarms()
         let notifications = UIApplication.shared.scheduledLocalNotifications
