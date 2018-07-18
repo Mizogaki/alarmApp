@@ -1,6 +1,6 @@
 //
 //  PropertyReflectable.swift
-//  Alarm-ios-swift
+//  ciatr_media_app
 //
 //  Created by mmizogaki on 2017/01/30.
 //  Copyright © 2017年 viviane. All rights reserved.
@@ -16,12 +16,10 @@ protocol PropertyReflectable{
     var propertyValues: ValuesType {get}
     var propertyNames: NamesType {get}
     static var propertyCount: Int {get}
-    //construction from representation type
+
     init(_ r:RepresentationType)
 }
 
-
-//default implementation
 extension PropertyReflectable{
     
     var propertyDictRepresentation: RepresentationType {

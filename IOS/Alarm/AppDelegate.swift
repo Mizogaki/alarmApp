@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  WeatherAlarm
+//  ciatr_media_app
 //
 //  Created by mmizogaki on 15-2-28.
 //  Copyright (c) 2017年 viviane. All rights reserved.

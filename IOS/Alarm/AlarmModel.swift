@@ -1,6 +1,6 @@
 //
 //  AlarmModel.swift
-//  Alarm-ios-swift
+//  ciatr_media_app
 //
 //  Created by mmizogaki on 15-2-28.
 //  Copyright (c) 2017年 viviane. All rights reserved.
@@ -57,7 +57,6 @@ extension Alarm {
     }
 }
 
-//This can be considered as a viewModel
 class Alarms: Persistable {
     let ud: UserDefaults = UserDefaults.standard
     let persistKey: String = "myAlarmKey"
@@ -91,7 +90,6 @@ class Alarms: Persistable {
         return alarms.count
     }
     
-    //helper, get all alarms from Userdefaults
     private func getAlarms() -> [Alarm] {
         let array = UserDefaults.standard.array(forKey: persistKey)
         guard let alarmArray = array else{

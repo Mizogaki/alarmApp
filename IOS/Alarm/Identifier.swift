@@ -1,6 +1,6 @@
 //
 //  Identifier.swift
-//  Alarm-ios-swift
+//  ciatr_media_app
 //
 //  Created by mmizogaki on 2017/02/02.
 //  Copyright © 2017年 viviane. All rights reserved.

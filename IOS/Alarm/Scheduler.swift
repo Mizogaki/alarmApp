@@ -1,6 +1,6 @@
 //
 //  Scheduler.swift
-//  Alarm-ios-swift
+//  ciatr_media_app
 //
 //  Created by mmizogaki on 16/1/15.
 //  Copyright (c) 2017年 viviane. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  MainAlarmViewController.swift
-//  Alarm-ios-swift
+//  ciatr_media_app
 //
 //  Created by mmizogaki on 15-2-28.
 //  Copyright (c) 2017年 viviane. All rights reserved.
@@ -38,18 +38,15 @@ class MainAlarmViewController: UITableViewController{
     }
     
     // MARK: - Table view data source
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // Return the number of sections.
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
         if alarmModel.count == 0 {
             tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         }
@@ -71,7 +68,7 @@ class MainAlarmViewController: UITableViewController{
         if (cell == nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: Id.alarmCellIdentifier)
         }
-        //cell text
+
         cell!.selectionStyle = .none
         cell!.tag = indexPath.row
         let alarm: Alarm = alarmModel.alarms[indexPath.row]
@@ -81,11 +78,10 @@ class MainAlarmViewController: UITableViewController{
         str.addAttributes(timeAttr, range: NSMakeRange(0, str.length-2))
         cell!.textLabel?.attributedText = str
         cell!.detailTextLabel?.text = alarm.label
-        //append switch button
+
         let sw = UISwitch(frame: CGRect())
         sw.transform = CGAffineTransform(scaleX: 0.9, y: 0.9);
         
-        //tag is used to indicate which row had been touched
         sw.tag = indexPath.row
         sw.addTarget(self, action: #selector(MainAlarmViewController.switchTapped(_:)), for: UIControlEvents.valueChanged)
         if alarm.enabled {
@@ -120,7 +116,6 @@ class MainAlarmViewController: UITableViewController{
         }
     }
 
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let index = indexPath.row
@@ -128,7 +123,7 @@ class MainAlarmViewController: UITableViewController{
             let cells = tableView.visibleCells
             for cell in cells {
                 let sw = cell.accessoryView as! UISwitch
-                //adjust saved index when row deleted
+
                 if sw.tag > index {
                     sw.tag -= 1
                 }
@@ -137,16 +132,13 @@ class MainAlarmViewController: UITableViewController{
                 self.navigationItem.leftBarButtonItem = nil
             }
             
-            // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
             alarmScheduler.reSchedule()
         }   
     }
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
         let dist = segue.destination as! UINavigationController
         let addEditController = dist.topViewController as! AlarmAddEditViewController
         if segue.identifier == Id.addSegueIdentifier {
@@ -164,8 +156,7 @@ class MainAlarmViewController: UITableViewController{
     }
     
     public func changeSwitchButtonState(index: Int) {
-        //let info = notification.userInfo as! [String: AnyObject]
-        //let index: Int = info["index"] as! Int
+
         alarmModel = Alarms()
         if alarmModel.alarms[index].repeatWeekdays.isEmpty {
             alarmModel.alarms[index].enabled = false
