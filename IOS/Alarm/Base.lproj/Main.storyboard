@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="TFz-Z9-qBx" kind="relationship" relationship="rootViewController" id="eUk-59-4Fq"/>
+                        <segue destination="TFz-Z9-qBx" kind="relationship" relationship="rootViewController" id="ShJ-Bj-1LM"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Twf-89-a8G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -154,7 +154,6 @@
         <!--Navigation Controller-->
         <scene sceneID="53u-li-aZw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fZC-2s-RKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XKb-lA-7Db" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="7i2-gr-IGo"/>
@@ -167,6 +166,7 @@
                         <segue destination="Hc0-91-jHo" kind="relationship" relationship="rootViewController" id="2bq-g9-tyL"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fZC-2s-RKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2727" y="-249"/>
         </scene>
